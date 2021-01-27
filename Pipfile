@@ -20,3 +20,5 @@ cryptography = "*"
 [packages]
 pdp_graphql_client_python = {path = ".", editable = true}
 click = "*"
+python-dotenv = "*"
+requests = "*"
