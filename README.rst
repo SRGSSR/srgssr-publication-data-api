@@ -28,7 +28,7 @@ USAGE
 
 * clone the repository
 
-* create a `.env` in the root directory file with the following Variables
+* create a :code:`.env` file in the root directory file with the following Variables
 
 .. code-block::
 
@@ -36,9 +36,9 @@ USAGE
     USER_NAME=[your_email]
     USER_PASSWORD=[your_password]
 
-* install the library with `make install` (preferably in a new virtual environment)
+* install the library with :code:`$ make install` (preferably in a new virtual environment)
 
-* run the example query by calling the command line without arguments, `$ pdp_graph_client_python` should return
+* run the example query by calling the command line without arguments, :code:`$ pdp_graph_client_python` should return
 
 .. code-block:: JSON
 
