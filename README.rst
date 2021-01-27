@@ -20,13 +20,46 @@ Python client to conveniently query PDP's GraphQL API
 
 
 * Free software: MIT license
-* Documentation: https://pdp-graphql-client-python.readthedocs.io.
 
 
-Features
+
+USAGE
 --------
 
-* TODO
+* clone the repository
+
+* create a `.env` in the root directory file with the following Variables
+
+.. code-block::
+
+    PDP_API=https://graphql-api.pdp.dev.srgssr.ch/graphql
+    USER_NAME=[your_email]
+    USER_PASSWORD=[your_password]
+
+* install the library with `make install` (preferably in a new virtual environment)
+
+* run the example query by calling the command line without arguments, `$ pdp_graph_client_python` should return
+
+.. code-block:: JSON
+
+    {
+     "data": {
+      "faroItemsByPlayUrn": [
+       {
+        "producer": "DRS",
+        "program": {
+         "department": "INF"
+        }
+       },
+       {
+        "producer": "SRF",
+        "program": {
+         "department": "Chefredaktion TV"
+        }
+       }
+      ]
+     }
+    }
 
 Credits
 -------
