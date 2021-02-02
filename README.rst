@@ -61,6 +61,8 @@ USAGE
      }
     }
 
+* to retrieve the result for another Play URN use :code:`$ pdp_graph_client_python --urn [urn]`, where :code:`urn` is of the form :code:`urn:srf:video:00025f95-2437-4dc3-a15a-44e5d2fa1d37`
+
 Credits
 -------
 
