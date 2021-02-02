@@ -13,7 +13,6 @@ def run_query(query, variables=None):
     username = os.getenv('USER_NAME').encode('latin1')
     password = os.getenv('USER_PASSWORD').encode('latin1')
     auth = 'Basic ' + b64encode(b':'.join((username, password))).decode("ascii")
-    print(auth)
     headers = {'Authorization': auth}
 
     endpoint = HTTPEndpoint(url, headers)
