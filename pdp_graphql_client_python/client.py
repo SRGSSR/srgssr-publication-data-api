@@ -2,17 +2,20 @@
 
 """Main module."""
 import os
-import requests
+from sgqlc.endpoint.http import HTTPEndpoint
+from base64 import b64encode
 
 
 def run_query(query):
     """Queries GraphQL API with input query and returns json request"""
-    request = requests.post(
-            os.getenv('PDP_API'),
-            json={'query': query},
-            auth=(os.getenv('USER_NAME'), os.getenv('USER_PASSWORD')),
-            )
-    if request.status_code == 200:
-        return request.json()
-    else:
-        raise Exception("Query failed with code {}. {}".format(request.status_code, query))
+
+    url = os.getenv('PDP_API')
+    username = os.getenv('USER_NAME').encode('latin1')
+    password = os.getenv('USER_PASSWORD').encode('latin1')
+    auth = 'Basic ' + b64encode(b':'.join((username, password))).decode("ascii")
+    headers = {'Authorization': auth}
+
+    endpoint = HTTPEndpoint(url, headers)
+    data = endpoint(query)
+
+    return data
