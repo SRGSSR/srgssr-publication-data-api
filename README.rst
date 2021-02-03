@@ -21,7 +21,7 @@ Python client to conveniently query PDP's GraphQL API
 
 * Free software: MIT license
 
-
+* Build upon the GraphQL Client :code:`sgqlc` https://github.com/profusion/sgqlc
 
 USAGE
 --------
