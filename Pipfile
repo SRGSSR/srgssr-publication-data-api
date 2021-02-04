@@ -16,6 +16,7 @@ PyInstaller = "*"
 Sphinx = "*"
 twine = "*"
 cryptography = "*"
+jupyter = "*"
 
 [packages]
 pdp_graphql_client_python = {path = ".", editable = true}
