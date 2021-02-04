@@ -34,8 +34,11 @@ def main(urn):
     """Console script for pdp_graphql_client_python."""
     variables = {'urn_list': urn}
     result = run_query(URN_QUERY, variables)
-    print(json.dumps(result, indent=1))
-    return 0
+    if result['data']:
+        print(json.dumps(result, indent=1))
+        return 0
+    else:
+        return 1
 
 
 if __name__ == "__main__":

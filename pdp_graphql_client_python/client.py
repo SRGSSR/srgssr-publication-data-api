@@ -2,6 +2,7 @@
 
 """Main module."""
 import os
+import sys
 from sgqlc.endpoint.http import HTTPEndpoint
 from base64 import b64encode
 
@@ -17,5 +18,11 @@ def run_query(query, variables=None):
 
     endpoint = HTTPEndpoint(url, headers)
     data = endpoint(query, variables)
+
+    # verify if errors were returned
+    if "errors" in data:
+        for error in data['errors']:
+            print(error['message'], file=sys.stderr)
+        raise data
 
     return data
