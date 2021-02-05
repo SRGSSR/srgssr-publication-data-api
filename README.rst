@@ -16,7 +16,7 @@ PDP GraphQL client Python
 
 
 
-Python client to conveniently query PDP's GraphQL API
+Example repository of how to access PDP's GraphQL API through python
 
 
 * Free software: MIT license
@@ -26,42 +26,66 @@ Python client to conveniently query PDP's GraphQL API
 USAGE
 --------
 
-* clone the repository
+We suggest two ways to use this repository:
 
-* create a :code:`.env` file in the root directory file with the following Variables
+#. **minimal**: copy only the necessary schema files and learn from the ``examples`` how to call the API in your code
 
-.. code-block::
+#. **package**: download the repo and install the library to experiment right away with the examples
 
-    PDP_API=https://graphql-api.pdp.dev.srgssr.ch/graphql
-    USER_NAME=[your_email]
-    USER_PASSWORD=[your_password]
 
-* install the library with :code:`$ make install` (preferably in a new virtual environment)
+minimal
+********
 
-* run the example query by calling the command line without arguments, :code:`$ pdp_graph_client_python` should return
+#. download the python schema file ``/examples/pdp_schema.py`` into your project
 
-.. code-block:: JSON
+#. install the ``sgqlc`` library using your favorite package manager (we recommend ``pipenv``)
 
-    {
-     "data": {
-      "faroItemsByPlayUrn": [
-       {
-        "producer": "DRS",
-        "program": {
-         "department": "INF"
+#. follow the examples in ``/examples/pdp_example.ipynb`` to learn how to access the API from your code
+
+package
+********
+
+#. clone the repository and enter the project folder
+
+#. create a ``.env`` file in the root directory file with the following Variables
+
+   .. code-block::
+
+        PDP_API=https://graphql-api.pdp.dev.srgssr.ch/graphql
+        USER_NAME=[your_email]
+        USER_PASSWORD=[your_password]
+
+#. install the package manager ``pipenv`` (more about here: https://pipenv.pypa.io/en/latest/install/#installing-pipenv)
+
+#. install the python library with :code:`$ pipenv install --dev`, this will create an independent virtual environment with all the needed libraries
+
+#. enter the newly created virtual environment with :code:`$ pipenv shell`
+
+#. test the installation by running the example query :code:`$ pdp_graph_client_python`, which should return
+
+   .. code-block:: JSON
+
+        {
+         "data": {
+          "faroItemsByPlayUrn": [
+           {
+            "producer": "DRS",
+            "program": {
+             "department": "INF"
+            }
+           },
+           {
+            "producer": "SRF",
+            "program": {
+             "department": "Chefredaktion TV"
+            }
+           }
+          ]
+         }
         }
-       },
-       {
-        "producer": "SRF",
-        "program": {
-         "department": "Chefredaktion TV"
-        }
-       }
-      ]
-     }
-    }
 
-* to retrieve the result for another Play URN use :code:`$ pdp_graph_client_python --urn [urn]`, where :code:`urn` is of the form :code:`urn:srf:video:00025f95-2437-4dc3-a15a-44e5d2fa1d37`
+
+   #. To retrieve the result for another Play URN use :code:`$ pdp_graph_client_python --urn [urn]`, where :code:`urn` is of the form :code:`urn:srf:video:00025f95-2437-4dc3-a15a-44e5d2fa1d37`
 
 Credits
 -------
