@@ -18,7 +18,7 @@ python3 -m sgqlc.introspection \
      --exclude-deprecated \
      --exclude-description \
      -H "Authorization: Basic ${BASE64_AUTH_TOKEN}" \
-     https://graphql-api.pdp.dev.srgssr.ch/graphql \
+     "${PDP_API}" \
      pdp_schema.json || exit 1
 
 echo "INFO - Successfully downloaded pdp_schema.json"
