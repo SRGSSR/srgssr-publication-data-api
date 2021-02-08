@@ -85,7 +85,9 @@ package
         }
 
 
-   #. To retrieve the result for another Play URN use :code:`$ pdp_graph_client_python --urn [urn]`, where :code:`urn` is of the form :code:`urn:srf:video:00025f95-2437-4dc3-a15a-44e5d2fa1d37`
+   #. To retrieve the result for another Play URN use :code:`$ pdp_graph_client_python --urn [urn]`, where ``[urn]`` is of the form ``urn:srf:video:00025f95-2437-4dc3-a15a-44e5d2fa1d37``
+
+#. Learn how to use the library by following the jupyter notebook examples in the folder ``examples``. To start the notebook environment use :code:`$ jupyter-notebook`
 
 Credits
 -------
