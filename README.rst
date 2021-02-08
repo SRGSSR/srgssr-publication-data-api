@@ -51,7 +51,7 @@ package
 
    .. code-block::
 
-        PDP_API=https://graphql-api.pdp.dev.srgssr.ch/graphql
+        PDP_API=https://graphql-api.pdp.int.srgssr.ch/graphql
         USER_NAME=[your_email]
         USER_PASSWORD=[your_password]
 
