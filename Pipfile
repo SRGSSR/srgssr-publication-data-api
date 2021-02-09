@@ -17,6 +17,7 @@ Sphinx = "*"
 twine = "*"
 cryptography = "*"
 jupyter = "*"
+pandas = "*"
 
 [packages]
 pdp_graphql_client_python = {path = ".", editable = true}
