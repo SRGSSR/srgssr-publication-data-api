@@ -19,6 +19,7 @@ cryptography = "*"
 jupyter = "*"
 pandas = "*"
 tqdm = "*"
+matplotlib = "*"
 
 [packages]
 pdp_graphql_client_python = {path = ".", editable = true}
