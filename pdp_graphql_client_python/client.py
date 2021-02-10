@@ -23,6 +23,6 @@ def run_query(query, variables=None):
     if "errors" in data:
         for error in data['errors']:
             print(error['message'], file=sys.stderr)
-        raise data
+        raise SystemExit('Request returned with errors!')
 
     return data
