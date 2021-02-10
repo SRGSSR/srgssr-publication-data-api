@@ -17,7 +17,7 @@ BASE64_AUTH_TOKEN=$(echo -n "${USER_NAME}:${USER_PASSWORD}" |  base64)
 python3 -m sgqlc.introspection \
      --exclude-deprecated \
      --exclude-description \
-     -H "Authorization: Basic ${BASE64_AUTH_TOKEN}" \
+     -H "Authorization=Basic ${BASE64_AUTH_TOKEN}" \
      "${PDP_API}" \
      pdp_schema.json || exit 1
 
