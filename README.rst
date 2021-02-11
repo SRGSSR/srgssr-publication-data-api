@@ -33,6 +33,18 @@ We suggest two ways to use this repository:
 #. **package**: download the repo and install the library to experiment right away with the examples
 
 
+Installation
+------------
+
+The required minimal python-version is 3.6+ (``sgqlc``), while for development 3.7+ (``pandas``).
+We manage requirements using the ``pipenv`` tool in the ``Pipfile`` (more about this here: https://pipenv.pypa.io ).
+
+.. note::
+  The installation steps assume that you have a working ``python`` installation as outline above.
+  The library ``pipenv`` is platform cross-compatible (windows/unix) but will not manage the python version for you.
+  Suggested tools to manage different python versions is ``pyenv``, see article here: https://realpython.com/intro-to-pyenv/
+
+
 minimal
 ********
 
@@ -40,7 +52,7 @@ minimal
 
 #. install the ``sgqlc`` library using your favorite package manager (we recommend ``pipenv``)
 
-#. follow the examples in ``/examples/pdp_example.ipynb`` to learn how to access the API from your code
+#. follow the examples in ``/examples/pdp_example.py`` to learn how to access the API from your code
 
 package
 ********
@@ -55,16 +67,11 @@ package
         USER_NAME=[your_email]
         USER_PASSWORD=[your_password]
 
-#. install the package & virtualenv manager tool ``pipenv`` (more about here: https://pipenv.pypa.io ), two suggested methods:
+#. install the package & virtualenv manager tool ``pipenv``, two suggested methods:
 
    * pragmatic installation with ``pip`` from https://www.jetbrains.com/help/idea/pipenv.html
 
    * isolated installation with ``pipx`` from https://pipenv.pypa.io/en/latest/install/#isolated-installation-of-pipenv-with-pipx
-
-   .. note::
-      This step assumes that you have a working ``python3`` installation. The library ``pipenv`` is platform cross-compatible (windows/unix) but will not manage the python version for you.
-
-      Suggested tools to manage different python versions is ``pyenv``, see article here: https://realpython.com/intro-to-pyenv/
 
 #. install the python library with :code:`$ pipenv install --dev`, this will create an independent virtual environment with all the needed libraries
 
