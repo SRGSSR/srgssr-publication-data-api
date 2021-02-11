@@ -63,7 +63,7 @@ package
 
    .. code-block::
 
-        PDP_API=https://graphql-api.pdp.int.srgssr.ch/graphql
+        PDP_API=https://graphql-api.pdp.dev.srgssr.ch/graphql
         USER_NAME=[your_email]
         USER_PASSWORD=[your_password]
 
@@ -83,18 +83,38 @@ package
 
         {
          "data": {
-          "faroItemsByPlayUrn": [
+          "assets": [
            {
-            "producer": "DRS",
-            "program": {
-             "department": "INF"
-            }
+            "assetId": "30115005-a6c3-4708-98f8-10fb082e381e",
+            "title": "Fernweh: Von Kapstadt zu den Viktoriaf\u00e4llen",
+            "orientation": null,
+            "hasContributor": [
+             {
+              "givenName": "B\u00e9atrice",
+              "familyName": "Mohr"
+             },
+             {
+              "givenName": "Kurt",
+              "familyName": "Schaad"
+             }
+            ]
            },
            {
-            "producer": "SRF",
-            "program": {
-             "department": "Chefredaktion TV"
-            }
+            "assetId": "7296f1fd-5767-4bb9-9c3c-546959723141",
+            "title": "Die Strassenfliege",
+            "totalNumberOfEpisodes": "5",
+            "hasContributor": []
+           },
+           {
+            "assetId": "urn:srf:video:271310e9-f391-4d28-8495-be660fce42f1",
+            "title": "Billiger Echtpelz. Knausrige Samsung. Winterhandschuh-Test.",
+            "orientation": null,
+            "hasContributor": [
+             {
+              "givenName": "Ueli",
+              "familyName": "Schmezer"
+             }
+            ]
            }
           ]
          }

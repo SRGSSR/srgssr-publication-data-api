@@ -11,12 +11,22 @@ from pdp_graphql_client_python.client import run_query
 load_dotenv()  # take environment variables from .env
 URN_QUERY = '''
 query FaroItemsByPlayUrn($urn_list: [String!]!) {
-    faroItemsByPlayUrn(
-        urns: $urn_list
+    assets(
+        ids: $urn_list
     ) {
-        producer
-        program {
-            department
+        assetId
+        title
+        ... on Series {
+          totalNumberOfEpisodes
+        }
+        ... on Episode {
+          orientation
+        }
+        hasContributor {
+          ... on Staff {
+            givenName
+            familyName
+          }
         }
     }
 }
@@ -24,10 +34,11 @@ query FaroItemsByPlayUrn($urn_list: [String!]!) {
 
 
 @click.command()
-@click.option('--urn', help='Retrieve producer and program by play URN', multiple=True,
+@click.option('--urn', help='Retrieve asset information by id or play URN', multiple=True,
               default=[
-                "urn:srf:video:00025f95-2437-4dc3-a15a-44e5d2fa1d37",
-                "urn:srf:video:f0076ff4-6f9a-48d8-a61c-83ad203b9f62",
+                  "30115005-A6C3-4708-98F8-10FB082E381E",
+                  "7296F1FD-5767-4BB9-9C3C-546959723141",
+                  "urn:srf:video:271310e9-f391-4d28-8495-be660fce42f1"
               ]
               )
 def main(urn):
