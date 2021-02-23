@@ -34,12 +34,14 @@ query FaroItemsByPlayUrn($urn_list: [String!]!) {
 
 
 @click.command()
-@click.option('--urn', help='Retrieve asset information by id or play URN', multiple=True,
+@click.option('--urn',
+              help='Retrieve asset information by id or play URN',
+              multiple=True,
               default=[
                   "30115005-A6C3-4708-98F8-10FB082E381E",
                   "7296F1FD-5767-4BB9-9C3C-546959723141",
                   "urn:srf:video:271310e9-f391-4d28-8495-be660fce42f1"
-              ]
+              ],
               )
 def main(urn):
     """Console script for pdp_graphql_client_python."""

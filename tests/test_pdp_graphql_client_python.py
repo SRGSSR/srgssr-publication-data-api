@@ -7,7 +7,6 @@ import pytest
 
 from click.testing import CliRunner
 
-from pdp_graphql_client_python import client
 from pdp_graphql_client_python import cli
 
 

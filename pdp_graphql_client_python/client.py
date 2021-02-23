@@ -13,7 +13,8 @@ def run_query(query, variables=None):
     url = os.getenv('PDP_API')
     username = os.getenv('USER_NAME').encode('latin1')
     password = os.getenv('USER_PASSWORD').encode('latin1')
-    auth = 'Basic ' + b64encode(b':'.join((username, password))).decode("ascii")
+    joined_credentials = b':'.join((username, password))
+    auth = 'Basic ' + b64encode(joined_credentials).decode("ascii")
     headers = {'Authorization': auth}
 
     endpoint = HTTPEndpoint(url, headers)
