@@ -19,6 +19,7 @@ def response():
     # import requests
     # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
 
+
 @pytest.fixture
 def basic_credentials():
     """provide basic credentials"""
