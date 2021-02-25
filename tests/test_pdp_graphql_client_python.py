@@ -8,6 +8,8 @@ from click.testing import CliRunner
 
 from pdp_graphql_client_python import cli, client
 
+EXAMPLE_ENDPOINT = "https://graphql-api.example.com/graphql"
+
 
 @pytest.fixture
 def response():
@@ -24,6 +26,12 @@ def basic_credentials(monkeypatch):
     """provide basic credentials"""
     monkeypatch.setenv("USER_NAME", "dummy")
     monkeypatch.setenv("USER_PASSWORD", "password")
+
+
+@pytest.fixture
+def basic_endpoint_url(monkeypatch):
+    """provide example endpoint URL"""
+    monkeypatch.setenv("PDP_API", EXAMPLE_ENDPOINT)
 
 
 @pytest.fixture
@@ -72,3 +80,9 @@ def test_raise_missing_endpoint(missing_endpoint):
     """Remove env variable PDP_API and assert OSError"""
     with pytest.raises(OSError):
         _ = client.get_endpoint_url()
+
+
+def test_get_endpoint(basic_endpoint_url, basic_credentials):
+    """Test endpoint object creation"""
+    endpoint = client.get_http_endpoint()
+    assert endpoint.url == EXAMPLE_ENDPOINT

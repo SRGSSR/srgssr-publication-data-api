@@ -10,10 +10,7 @@ from base64 import b64encode
 def run_query(query, variables=None):
     """Queries GraphQL API with input query and returns json request"""
 
-    url = get_endpoint_url()
-    headers = assemble_authorization_headers()
-
-    endpoint = HTTPEndpoint(url, headers)
+    endpoint = get_http_endpoint()
     data = endpoint(query, variables)
 
     # verify if errors were returned
@@ -23,6 +20,14 @@ def run_query(query, variables=None):
         raise SystemExit('Request returned with errors!')
 
     return data
+
+
+def get_http_endpoint():
+    """Gets the GraphQL Endpoint object to query"""
+    url = get_endpoint_url()
+    headers = assemble_authorization_headers()
+    endpoint = HTTPEndpoint(url, headers)
+    return endpoint
 
 
 def get_endpoint_url():
