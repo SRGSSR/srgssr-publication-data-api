@@ -11,6 +11,8 @@ def run_query(query, variables=None):
     """Queries GraphQL API with input query and returns json request"""
 
     url = os.getenv('PDP_API')
+    if url is None:
+        raise OSError("PDP_API environment is not set.")
     headers = assemble_authorization_headers()
 
     endpoint = HTTPEndpoint(url, headers)
@@ -27,9 +29,15 @@ def run_query(query, variables=None):
 
 def assemble_authorization_headers():
     """Assembles Basic HTTP Authentication Header from environment variables"""
-    username = os.getenv('USER_NAME').encode('latin1')
-    password = os.getenv('USER_PASSWORD').encode('latin1')
-    joined_credentials = b':'.join((username, password))
+    username = os.getenv('USER_NAME')
+    if username is None:
+        raise OSError("USER_NAME environment is not set.")
+
+    password = os.getenv('USER_PASSWORD')
+    if password is None:
+        raise OSError("USER_PASSWORD environment is not set.")
+
+    joined_credentials = b':'.join((username.encode('latin1'), password.encode('latin1')))
     auth = 'Basic ' + b64encode(joined_credentials).decode("ascii")
     headers = {'Authorization': auth}
     return headers

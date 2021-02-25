@@ -21,10 +21,16 @@ def response():
 
 
 @pytest.fixture
-def basic_credentials():
+def basic_credentials(monkeypatch):
     """provide basic credentials"""
-    os.environ["USER_NAME"] = "dummy"
-    os.environ["USER_PASSWORD"] = "password"
+    monkeypatch.setenv("USER_NAME", "dummy")
+    monkeypatch.setenv("USER_PASSWORD", "password")
+
+
+@pytest.fixture
+def missing_credentials(monkeypatch):
+    """remove credential"""
+    monkeypatch.delenv("USER_NAME", raising=False)
 
 
 def test_content(response):
@@ -49,3 +55,9 @@ def test_assemble_authorization_headers(basic_credentials):
     headers = client.assemble_authorization_headers()
     assert 'Authorization' in headers
     assert headers['Authorization'] == 'Basic ZHVtbXk6cGFzc3dvcmQ='
+
+
+def test_raise_missing_environment(missing_credentials):
+    """Remove env variable USER_NAME and assert OSError"""
+    with pytest.raises(OSError):
+        _ = client.assemble_authorization_headers()
