@@ -1,0 +1,1757 @@
+{
+  "data": {
+    "__schema": {
+      "directives": [
+        {
+          "args": [
+            {
+              "defaultValue": null,
+              "name": "if",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              }
+            }
+          ],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "name": "include"
+        },
+        {
+          "args": [
+            {
+              "defaultValue": null,
+              "name": "if",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              }
+            }
+          ],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "name": "skip"
+        },
+        {
+          "args": [
+            {
+              "defaultValue": "\"No longer supported\"",
+              "name": "reason",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "locations": [
+            "ENUM_VALUE",
+            "FIELD_DEFINITION"
+          ],
+          "name": "deprecated"
+        }
+      ],
+      "mutationType": null,
+      "queryType": {
+        "name": "Query"
+      },
+      "subscriptionType": null,
+      "types": [
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "orientation",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "assetId",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "title",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "abstract",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "date",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasContributor",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INTERFACE",
+                      "name": "Agent",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "INTERFACE",
+          "name": "BusinessObject",
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Episode",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "agentName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasRole",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "dateOfBirth",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "givenName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "familyName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "characterName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Person",
+              "ofType": null
+            },
+            {
+              "kind": "INTERFACE",
+              "name": "Agent",
+              "ofType": null
+            }
+          ],
+          "kind": "OBJECT",
+          "name": "Character",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "approvedBy",
+              "type": {
+                "kind": "INTERFACE",
+                "name": "Agent",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "isDistributedOn",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "orientation",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "assetId",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "title",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "abstract",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "date",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasContributor",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INTERFACE",
+                      "name": "Agent",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "INTERFACE",
+          "name": "EditorialObject",
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Episode",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "assetId",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "title",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "abstract",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "date",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "orientation",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "isDistributedOn",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "approvedBy",
+              "type": {
+                "kind": "INTERFACE",
+                "name": "Agent",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasContributor",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INTERFACE",
+                      "name": "Agent",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "hasManifestation",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "MediaResource",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "EditorialObject",
+              "ofType": null
+            },
+            {
+              "kind": "INTERFACE",
+              "name": "BusinessObject",
+              "ofType": null
+            },
+            {
+              "kind": "INTERFACE",
+              "name": "Asset",
+              "ofType": null
+            }
+          ],
+          "kind": "OBJECT",
+          "name": "Episode",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "totalNumberOfEpisodes",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "assetId",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "title",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "abstract",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "date",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasContributor",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INTERFACE",
+                      "name": "Agent",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "INTERFACE",
+          "name": "Group",
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Series",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "assetId",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "title",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "abstract",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "date",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasFormat",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasContributor",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INTERFACE",
+                      "name": "Agent",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "hasManifestation",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "MediaResource",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Asset",
+              "ofType": null
+            }
+          ],
+          "kind": "OBJECT",
+          "name": "MediaResource",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "agentName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "dateOfBirth",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasRole",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "INTERFACE",
+          "name": "Person",
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Character",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Staff",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "assetId",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "title",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "abstract",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "date",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "totalNumberOfEpisodes",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasContributor",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INTERFACE",
+                      "name": "Agent",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "hasManifestation",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "MediaResource",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Group",
+              "ofType": null
+            },
+            {
+              "kind": "INTERFACE",
+              "name": "Asset",
+              "ofType": null
+            }
+          ],
+          "kind": "OBJECT",
+          "name": "Series",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "agentName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasRole",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "dateOfBirth",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "givenName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "familyName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Person",
+              "ofType": null
+            },
+            {
+              "kind": "INTERFACE",
+              "name": "Agent",
+              "ofType": null
+            }
+          ],
+          "kind": "OBJECT",
+          "name": "Staff",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "agentName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasRole",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "INTERFACE",
+          "name": "Agent",
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Character",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Staff",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "assetId",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "title",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "abstract",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "date",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "hasContributor",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INTERFACE",
+                      "name": "Agent",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "INTERFACE",
+          "name": "Asset",
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Episode",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "MediaResource",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Series",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [
+                {
+                  "defaultValue": null,
+                  "name": "ids",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "LIST",
+                      "name": null,
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "name": null,
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "String",
+                          "ofType": null
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "name": "assets",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INTERFACE",
+                    "name": "Asset",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "kind": "OBJECT",
+          "name": "Query",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "locations",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "__DirectiveLocation",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "args",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "__InputValue",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "kind": "OBJECT",
+          "name": "__Directive",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": [
+            {
+              "name": "QUERY"
+            },
+            {
+              "name": "MUTATION"
+            },
+            {
+              "name": "SUBSCRIPTION"
+            },
+            {
+              "name": "FIELD"
+            },
+            {
+              "name": "FRAGMENT_DEFINITION"
+            },
+            {
+              "name": "FRAGMENT_SPREAD"
+            },
+            {
+              "name": "INLINE_FRAGMENT"
+            },
+            {
+              "name": "VARIABLE_DEFINITION"
+            },
+            {
+              "name": "SCHEMA"
+            },
+            {
+              "name": "SCALAR"
+            },
+            {
+              "name": "OBJECT"
+            },
+            {
+              "name": "FIELD_DEFINITION"
+            },
+            {
+              "name": "ARGUMENT_DEFINITION"
+            },
+            {
+              "name": "INTERFACE"
+            },
+            {
+              "name": "UNION"
+            },
+            {
+              "name": "ENUM"
+            },
+            {
+              "name": "ENUM_VALUE"
+            },
+            {
+              "name": "INPUT_OBJECT"
+            },
+            {
+              "name": "INPUT_FIELD_DEFINITION"
+            }
+          ],
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "ENUM",
+          "name": "__DirectiveLocation",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "isDeprecated",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "deprecationReason",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "kind": "OBJECT",
+          "name": "__EnumValue",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "args",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "__InputValue",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "type",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "__Type",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "isDeprecated",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "deprecationReason",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "kind": "OBJECT",
+          "name": "__Field",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "type",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "__Type",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "defaultValue",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "kind": "OBJECT",
+          "name": "__InputValue",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "types",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "__Type",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "queryType",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "__Type",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "mutationType",
+              "type": {
+                "kind": "OBJECT",
+                "name": "__Type",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "subscriptionType",
+              "type": {
+                "kind": "OBJECT",
+                "name": "__Type",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "directives",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "__Directive",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "kind": "OBJECT",
+          "name": "__Schema",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": [
+            {
+              "args": [],
+              "name": "kind",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "__TypeKind",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [],
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "args": [
+                {
+                  "defaultValue": "false",
+                  "name": "includeDeprecated",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  }
+                }
+              ],
+              "name": "fields",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "__Field",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "interfaces",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "__Type",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "possibleTypes",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "__Type",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "args": [
+                {
+                  "defaultValue": "false",
+                  "name": "includeDeprecated",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  }
+                }
+              ],
+              "name": "enumValues",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "__EnumValue",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "inputFields",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "__InputValue",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "args": [],
+              "name": "ofType",
+              "type": {
+                "kind": "OBJECT",
+                "name": "__Type",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "kind": "OBJECT",
+          "name": "__Type",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": [
+            {
+              "name": "SCALAR"
+            },
+            {
+              "name": "OBJECT"
+            },
+            {
+              "name": "INTERFACE"
+            },
+            {
+              "name": "UNION"
+            },
+            {
+              "name": "ENUM"
+            },
+            {
+              "name": "INPUT_OBJECT"
+            },
+            {
+              "name": "LIST"
+            },
+            {
+              "name": "NON_NULL"
+            }
+          ],
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "ENUM",
+          "name": "__TypeKind",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "possibleTypes": null
+        },
+        {
+          "enumValues": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "kind": "SCALAR",
+          "name": "String",
+          "possibleTypes": null
+        }
+      ]
+    }
+  }
+}

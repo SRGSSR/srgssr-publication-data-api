@@ -19,9 +19,9 @@ python3 -m sgqlc.introspection \
      --exclude-description \
      -H "Authorization=Basic ${BASE64_AUTH_TOKEN}" \
      "${PDP_API}" \
-     pdp_schema.json || exit 1
+     ebucore_schema.json || exit 1
 
-echo "INFO - Successfully downloaded pdp_schema.json"
+echo "INFO - Successfully downloaded ebucore_schema.json"
 
 # source: https://github.com/profusion/sgqlc#code-generator
-sgqlc-codegen schema pdp_schema.json pdp_schema.py && echo "INFO - Successfully updated pdp_schema.py"
+sgqlc-codegen schema ebucore_schema.json ebucore_schema.py && echo "INFO - Successfully updated ebucore_schema.py"
