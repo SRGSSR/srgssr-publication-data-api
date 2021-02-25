@@ -66,7 +66,10 @@ def missing_endpoint(monkeypatch):
 
 
 def test_command_line_interface(mocker):
-    """Test the CLI."""
+    """Test the CLI with api mocker
+
+    See more at: https://pypi.org/project/pytest-mock/
+    """
     mocker.patch('pdp_graphql_client_python.client.call_api',
                  return_value=EXAMPLE_RESPONSE_OK)
     runner = CliRunner()
