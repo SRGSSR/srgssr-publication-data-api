@@ -105,3 +105,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# example output files
+examples_out/
