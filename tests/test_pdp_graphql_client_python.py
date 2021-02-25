@@ -4,7 +4,6 @@
 """Tests for `pdp_graphql_client_python` package."""
 
 import pytest
-import os
 from click.testing import CliRunner
 
 from pdp_graphql_client_python import cli, client
@@ -31,6 +30,12 @@ def basic_credentials(monkeypatch):
 def missing_credentials(monkeypatch):
     """remove credential"""
     monkeypatch.delenv("USER_NAME", raising=False)
+
+
+@pytest.fixture
+def missing_endpoint(monkeypatch):
+    """remove endpoint URL"""
+    monkeypatch.delenv("PDP_API", raising=False)
 
 
 def test_content(response):
@@ -61,3 +66,9 @@ def test_raise_missing_environment(missing_credentials):
     """Remove env variable USER_NAME and assert OSError"""
     with pytest.raises(OSError):
         _ = client.assemble_authorization_headers()
+
+
+def test_raise_missing_endpoint(missing_endpoint):
+    """Remove env variable PDP_API and assert OSError"""
+    with pytest.raises(OSError):
+        _ = client.get_endpoint_url()
