@@ -37,18 +37,12 @@ EXAMPLE_RESPONSE_ERROR = {
 
 
 @pytest.fixture
-def response():
-    """Sample pytest fixture.
+def basic_credentials(monkeypatch):
+    """provide basic credentials through monkeypatching and fixture
 
+    See more at: https://docs.pytest.org/en/stable/monkeypatch.html
     See more at: http://doc.pytest.org/en/latest/fixture.html
     """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
-@pytest.fixture
-def basic_credentials(monkeypatch):
-    """provide basic credentials"""
     monkeypatch.setenv("USER_NAME", "dummy")
     monkeypatch.setenv("USER_PASSWORD", "password")
 
@@ -69,12 +63,6 @@ def missing_credentials(monkeypatch):
 def missing_endpoint(monkeypatch):
     """remove endpoint URL"""
     monkeypatch.delenv("PDP_API", raising=False)
-
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
 
 
 def test_command_line_interface(mocker):
