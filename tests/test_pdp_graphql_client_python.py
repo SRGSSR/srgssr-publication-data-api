@@ -9,6 +9,31 @@ from click.testing import CliRunner
 from pdp_graphql_client_python import cli, client
 
 EXAMPLE_ENDPOINT = "https://graphql-api.example.com/graphql"
+EXAMPLE_RESPONSE_OK = {
+ "data": {
+  "assets": [
+   {
+    "assetId": "test",
+    "title": "test",
+    "orientation": None,
+    "hasContributor": [
+     {
+      "givenName": "test",
+      "familyName": "test"
+     }
+    ]
+   }
+  ]
+ }
+}
+EXAMPLE_RESPONSE_ERROR = {
+ "data": None,
+ "errors": [
+  {
+   "message": "Malformed Query!"
+  }
+ ]
+}
 
 
 @pytest.fixture
@@ -52,8 +77,10 @@ def test_content(response):
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
 
 
-def test_command_line_interface():
+def test_command_line_interface(mocker):
     """Test the CLI."""
+    mocker.patch('pdp_graphql_client_python.client.call_api',
+                 return_value=EXAMPLE_RESPONSE_OK)
     runner = CliRunner()
     result = runner.invoke(cli.main)
     assert result.exit_code == 0
@@ -86,3 +113,11 @@ def test_get_endpoint(basic_endpoint_url, basic_credentials):
     """Test endpoint object creation"""
     endpoint = client.get_http_endpoint()
     assert endpoint.url == EXAMPLE_ENDPOINT
+
+
+def test_query_failure(basic_endpoint_url, basic_credentials, mocker):
+    """Mock server failure response and assert SystemExit"""
+    mocker.patch('pdp_graphql_client_python.client.call_api',
+                 return_value=EXAMPLE_RESPONSE_ERROR)
+    with pytest.raises(SystemExit):
+        _ = client.run_query("{query{}}")

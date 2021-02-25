@@ -10,8 +10,7 @@ from base64 import b64encode
 def run_query(query, variables=None):
     """Queries GraphQL API with input query and returns json request"""
 
-    endpoint = get_http_endpoint()
-    data = endpoint(query, variables)
+    data = call_api(query, variables)
 
     # verify if errors were returned
     if "errors" in data:
@@ -19,6 +18,13 @@ def run_query(query, variables=None):
             print(error['message'], file=sys.stderr)
         raise SystemExit('Request returned with errors!')
 
+    return data
+
+
+def call_api(query, variables):
+    """Calls GraphQL endpoint with sgqlc http endpoint"""
+    endpoint = get_http_endpoint()
+    data = endpoint(query, variables)
     return data
 
 
