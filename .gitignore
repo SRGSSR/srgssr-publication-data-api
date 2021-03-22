@@ -107,4 +107,5 @@ ENV/
 .mypy_cache/
 
 # example output files
-examples_out/
+jupyter_out/
+/.vscode/

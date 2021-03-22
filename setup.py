@@ -38,8 +38,8 @@ setup(
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='pdp_graphql_client_python',
-    name='pdp_graphql_client_python',
+    keywords='srgssr metadata pdp publication data platform',
+    name='SRGSSR metadata', # TODO find a better bane
     packages=find_packages(include=['pdp_graphql_client_python']),
     setup_requires=setup_requirements,
     test_suite='tests',
@@ -50,4 +50,3 @@ setup(
 )
 
 python_requires='>=3.6'
-

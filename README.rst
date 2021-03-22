@@ -28,13 +28,18 @@ USAGE
 
 We suggest two ways to use this repository:
 
-#. **minimal**: copy only the necessary schema files and learn from the ``examples`` how to call the API in your code
+#. **jupyter (recommended as first step)**: download the repo and start the jupyter notebooks
 
-#. **package**: download the repo and install the library to experiment right away with the examples
-
+#. **library**: Copy only the files in ``examples-project`` to have a sample starter for your own python project
 
 Installation
 ------------
+
+Supported Python Versions:
+
+#. 3.6 (minimum for the library)
+#. 3.7 (minimum for pandas and jupyter notebooks)
+#. 3.8
 
 The required minimal python-version is 3.6+ (``sgqlc``), while for development 3.7+ (``pandas``).
 We manage requirements using the ``pipenv`` tool in the ``Pipfile`` (more about this here: https://pipenv.pypa.io ).
@@ -44,6 +49,10 @@ We manage requirements using the ``pipenv`` tool in the ``Pipfile`` (more about 
   The library ``pipenv`` is platform cross-compatible (windows/unix) but will not manage the python version for you.
   Suggested tools to manage different python versions is ``pyenv``, see article here: https://realpython.com/intro-to-pyenv/
 
+environment preparation
+***********************
+
+
 
 minimal
 ********
@@ -52,7 +61,7 @@ minimal
 
 #. install the ``sgqlc`` library using your favorite package manager (we recommend ``pipenv``)
 
-#. follow the examples in ``/examples/pdp_example.py`` to learn how to access the API from your code
+#. follow the examples in ``example-project`` or ``jupyter`` to learn how to access the API from your code
 
 package
 ********
@@ -132,9 +141,9 @@ Testing
 
     Note: These tests are offline and do not call the PDP API.
 
-* To test whether all *jupyter notebooks* example can run through without errors use :code:`$ make test-notebooks`.
+* To test whether all *jupyter notebooks* example can run through without errors use :code:`$ make jupyter-notebooks`.
 
-    Note: This command will query the PDP api and generate a new output directory called ``examples-out`` which contains an HTML version of each notebook.
+    Note: This command will query the PDP api and generate a new output directory called ``jupyter_out`` which contains an HTML version of each notebook.
 
 
 Credits
