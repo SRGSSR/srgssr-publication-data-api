@@ -125,6 +125,18 @@ package
 
 #. Learn how to use the library by following the jupyter notebook examples in the folder ``examples``. To start the notebook environment use :code:`$ jupyter-notebook`
 
+Testing
+--------
+
+* To test the *package* itself we use ``pytest``. To run all test use :code:`$ make test` or :code:`$ pytest`
+
+    Note: These tests are offline and do not call the PDP API.
+
+* To test whether all *jupyter notebooks* example can run through without errors use :code:`$ make test-notebooks`.
+
+    Note: This command will query the PDP api and generate a new output directory called ``examples-out`` which contains an HTML version of each notebook.
+
+
 Credits
 -------
 
