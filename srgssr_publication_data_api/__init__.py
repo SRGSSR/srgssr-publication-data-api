@@ -4,4 +4,4 @@
 
 __author__ = """PDP"""
 __email__ = 'pdp@srgssr.ch'
-__version__ = '0.2.0'
+__version__ = '0.2.1'
