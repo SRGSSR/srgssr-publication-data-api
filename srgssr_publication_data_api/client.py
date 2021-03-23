@@ -23,15 +23,22 @@ def run_query(query, variables=None):
 
 def call_api(query, variables):
     """Calls GraphQL endpoint with sgqlc http endpoint"""
-    endpoint = get_http_endpoint()
+    endpoint = get_http_endpoint_from_env()
     data = endpoint(query, variables)
     return data
 
 
-def get_http_endpoint():
-    """Gets the GraphQL Endpoint object to query"""
+def get_http_endpoint_from_env():
+    """Gets the GraphQL Endpoint object to query from environment variables"""
     url = get_endpoint_url()
     headers = assemble_authorization_headers()
+    endpoint = HTTPEndpoint(url, headers)
+    return endpoint
+
+
+def get_http_endpoint(url, username, password):
+    """Gets the GraphQL Endpoint object to query from parameters"""
+    headers = assemble_authorization_headers(username, password)
     endpoint = HTTPEndpoint(url, headers)
     return endpoint
 
@@ -54,6 +61,11 @@ def assemble_authorization_headers():
     if password is None:
         raise OSError("USER_PASSWORD environment is not set.")
 
+    return create_basic_auth_headers(username, password)
+
+
+def create_basic_auth_headers(username, password):
+    """Assembles Basic HTTP Authentication Header from parameters"""
     joined_credentials = b':'.join((username.encode('latin1'),
                                     password.encode('latin1')))
     auth = 'Basic ' + b64encode(joined_credentials).decode("ascii")

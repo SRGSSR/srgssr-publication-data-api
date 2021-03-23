@@ -31,18 +31,18 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     description="Python client library to conveniently query the publication data of SRG/SSR",
-    entry_points={
-        'console_scripts': [
-            'pdp_graphql_client_python=pdp_graphql_client_python.cli:main',
-        ],
-    },
+    # entry_points={
+    #     'console_scripts': [
+    #         'srgssr_publication_data_api=srgssr_publication_data_api.cli:main',
+    #     ],
+    # },
     install_requires=requirements,
     license="MIT license",
     long_description=readme + '\n\n' + history, # TODO rewrite this one
     include_package_data=True,
     keywords='srgssr metadata pdp publication data',
-    name='srgssr-publication-data',
-    packages=find_packages(include=['pdp_graphql_client_python']),
+    name='srgssr-publication-data-api',
+    packages=find_packages(include=['srgssr_publication_data_api']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,

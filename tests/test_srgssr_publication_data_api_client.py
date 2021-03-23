@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Tests for `pdp_graphql_client_python` package."""
+"""Tests for `srgssr_publication_data_api` package."""
 
 import pytest
-from click.testing import CliRunner
 
-from pdp_graphql_client_python import cli, client
+from srgssr_publication_data_api import client
 
 EXAMPLE_ENDPOINT = "https://graphql-api.example.com/graphql"
 EXAMPLE_RESPONSE_OK = {
@@ -34,7 +33,6 @@ EXAMPLE_RESPONSE_ERROR = {
   }
  ]
 }
-
 
 @pytest.fixture
 def basic_credentials(monkeypatch):
@@ -64,23 +62,6 @@ def missing_endpoint(monkeypatch):
     """remove endpoint URL"""
     monkeypatch.delenv("PDP_API", raising=False)
 
-
-def test_command_line_interface(mocker):
-    """Test the CLI with api mocker
-
-    See more at: https://pypi.org/project/pytest-mock/
-    """
-    mocker.patch('pdp_graphql_client_python.client.call_api',
-                 return_value=EXAMPLE_RESPONSE_OK)
-    runner = CliRunner()
-    result = runner.invoke(cli.main)
-    assert result.exit_code == 0
-    assert 'data' in result.output
-    help_result = runner.invoke(cli.main, ['--help'])
-    assert help_result.exit_code == 0
-    assert 'Show this message and exit.' in help_result.output
-
-
 def test_assemble_authorization_headers(basic_credentials):
     """Test assembly of basic HTTP authentication headers"""
     headers = client.assemble_authorization_headers()
@@ -100,15 +81,15 @@ def test_raise_missing_endpoint(missing_endpoint):
         _ = client.get_endpoint_url()
 
 
-def test_get_endpoint(basic_endpoint_url, basic_credentials):
+def test_get_endpoint_from_env(basic_endpoint_url, basic_credentials):
     """Test endpoint object creation"""
-    endpoint = client.get_http_endpoint()
+    endpoint = client.get_http_endpoint_from_env()
     assert endpoint.url == EXAMPLE_ENDPOINT
 
 
 def test_query_failure(basic_endpoint_url, basic_credentials, mocker):
     """Mock server failure response and assert SystemExit"""
-    mocker.patch('pdp_graphql_client_python.client.call_api',
+    mocker.patch('srgssr_publication_data_api.client.call_api',
                  return_value=EXAMPLE_RESPONSE_ERROR)
     with pytest.raises(SystemExit):
         _ = client.run_query("{query{}}")

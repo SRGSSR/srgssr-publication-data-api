@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-"""Console script for pdp_graphql_client_python."""
+"""Console script for srgssr_publication_data_api."""
 import sys
 import json
 import click
 from dotenv import load_dotenv
 
-from pdp_graphql_client_python.client import run_query
+from srgssr_publication_data_api.client import run_query
 
 load_dotenv()  # take environment variables from .env
 URN_QUERY = '''
@@ -44,7 +44,7 @@ query FaroItemsByPlayUrn($urn_list: [String!]!) {
               ],
               )
 def main(urn):
-    """Console script for pdp_graphql_client_python."""
+    """Console script for srgssr_publication_data_api."""
     variables = {'urn_list': urn}
     result = run_query(URN_QUERY, variables)
     if result['data']:

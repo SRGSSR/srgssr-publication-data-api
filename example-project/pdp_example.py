@@ -1,6 +1,6 @@
 from sgqlc.operation import Operation
-from pdp_schema import pdp_schema as schema
-from pdp_graphql_client_python import client
+from srgssr_publication_data_api import pdp_schema as schema
+from srgssr_publication_data_api import client
 
 # retrieve available query types
 op = Operation(schema.Query)

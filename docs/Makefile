@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = pdp_graphql_client_python
+SPHINXPROJ    = srgssr_publication_data_api
 SOURCEDIR     = .
 BUILDDIR      = _build
 
