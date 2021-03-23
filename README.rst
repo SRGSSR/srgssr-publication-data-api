@@ -36,7 +36,7 @@ USAGE
 
 #. then it should work, this is a simple code snippet to extract the data
 
-    .. code-block:
+    .. code-block::
 
         from sgqlc.types import Variable, non_null
         from sgqlc.operation import Operation
