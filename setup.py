@@ -18,8 +18,8 @@ setup_requirements = ['pytest-runner', ]
 test_requirements = ['pytest', ]
 
 setup(
-    author="Davide Heller",
-    author_email='davide.heller@srf.ch',
+    author="SRGSSR PDP Team",
+    author_email='pdp@srgssr.ch',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -27,8 +27,10 @@ setup(
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
-    description="Python client to conveniently query PDP's GraphQL API",
+    description="Python client library to conveniently query the publication data of SRG/SSR",
     entry_points={
         'console_scripts': [
             'pdp_graphql_client_python=pdp_graphql_client_python.cli:main',
@@ -36,10 +38,10 @@ setup(
     },
     install_requires=requirements,
     license="MIT license",
-    long_description=readme + '\n\n' + history,
+    long_description=readme + '\n\n' + history, # TODO rewrite this one
     include_package_data=True,
-    keywords='srgssr metadata pdp publication data platform',
-    name='SRGSSR metadata', # TODO find a better bane
+    keywords='srgssr metadata pdp publication data',
+    name='srgssr-publication-data',
     packages=find_packages(include=['pdp_graphql_client_python']),
     setup_requires=setup_requirements,
     test_suite='tests',
