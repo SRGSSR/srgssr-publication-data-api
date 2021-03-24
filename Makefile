@@ -81,6 +81,8 @@ servedocs: docs ## compile the docs watching for changes
 
 release: dist ## package and upload a release
 	twine upload dist/* --repository srgssr-publication-data-api
+test-release: dist ## package and upload a release
+	twine upload dist/* --repository srgssr-publication-data-api-test
 executable:
 	pyinstaller --name srgssr_publication_data_api srgssr_publication_data_api/cli.py
 
