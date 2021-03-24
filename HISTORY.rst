@@ -2,6 +2,13 @@
 History
 =======
 
+0.4.0 (2021-03-24)
+------------------
+
+* Removed the dependency on environment variables.
+* Moved to class design.
+
+
 0.3.3 (2021-03-24)
 ------------------
 
