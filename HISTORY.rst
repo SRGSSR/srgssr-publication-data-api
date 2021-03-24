@@ -2,8 +2,15 @@
 History
 =======
 
+0.3.2 (2021-03-24)
+------------------
+
+* Removed the dependency on Click
+
+
 0.3.1 (2021-03-24)
 ------------------
+
 * Fixed typo in README.rst
 * Added missing dependency to sgqlc
 
