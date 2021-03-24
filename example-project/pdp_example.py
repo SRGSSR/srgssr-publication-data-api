@@ -1,5 +1,4 @@
 import os
-from sgqlc.operation import Operation
 from srgssr_publication_data_api import PublicationDataApi
 
 def program():

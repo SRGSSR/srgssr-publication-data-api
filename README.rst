@@ -26,32 +26,25 @@ Example repository of how to access PDP's GraphQL API through python
 USAGE
 --------
 
-#. create a ``.env`` file in the root directory file with the following Variables
+.. code-block::
 
-   .. code-block::
+    from sgqlc.types import Variable, non_null
+    from srgssr_publication_data_api import PublicationDataApi
 
-        PDP_API=https://graphql-api.pdp.dev.srgssr.ch/graphql
-        USER_NAME=[your_email]
-        USER_PASSWORD=[your_password]
+    # replace url, username, password with real values
+    client = PublicationDataApi(url, username, password)
 
-#. then it should work, this is a simple code snippet to extract the data
+    op = client.query_op()
 
-    .. code-block::
+    # to restrict fields to just title and cursor (for pagination):
+    selector = op.faro_items(first=5)
+    selector.edges().title()
+    selector.cursor()
 
-        from sgqlc.types import Variable, non_null
-        from sgqlc.operation import Operation
-        from srgssr_publication_data_api import client, pdp_schema
+    # if you just want to see the schema, just remove the selector.
 
-        op = Operation(schema.Query, name='faroItems', variables={'first':non_null(int), 'after':str})
-
-        # to restrict fields to just title and cursor (for pagination):
-        selector = op.faro_items(first=Variable('first'), after=Variable('after'))
-        selector.edges.title()
-        selector.cursor()
-
-        # if you just want to see the schema, just remove the selector.
-
-        print(client.run_query(op, {'first': 100})['data'])
+    result = client.run_query(op)
+    print(result)
 
 #. for more details about building the queries, see also ``sgqlc usage docs`` (https://github.com/profusion/sgqlc#usage)
 

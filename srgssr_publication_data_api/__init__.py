@@ -33,8 +33,11 @@ class PublicationDataApi:
         # Transform the result back into the schema
         return query + result
 
-    def query_op(self):
-        return Operation(self.schema.Query)
+    def query_op(self, name=None, **args):
+        """Create the sgqlc operation with the schema from the Publication Data API.
+        see :func:`sgqlc.operation.Operation`
+        """
+        return Operation(self.schema.Query, name, **args)
 
 
     def call_api(self, query, variables):

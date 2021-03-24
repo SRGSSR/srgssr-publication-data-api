@@ -22,6 +22,7 @@ tqdm = "*"
 matplotlib = "*"
 pytest-mock = "*"
 requests = "*"
+autopep8 = "*"
 
 [packages]
 srgssr-publication-data-api = {path = ".", editable = true}

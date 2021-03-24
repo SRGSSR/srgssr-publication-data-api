@@ -5,50 +5,28 @@ import sys
 import json
 import click
 from dotenv import load_dotenv
+from sgqlc.types import Variable, non_null
 
-from srgssr_publication_data_api.client import run_query
-
-load_dotenv()  # take environment variables from .env
-URN_QUERY = '''
-query FaroItemsByPlayUrn($urn_list: [String!]!) {
-    assets(
-        ids: $urn_list
-    ) {
-        assetId
-        title
-        ... on Series {
-          totalNumberOfEpisodes
-        }
-        ... on Episode {
-          orientation
-        }
-        hasContributor {
-          ... on Staff {
-            givenName
-            familyName
-          }
-        }
-    }
-}
-'''
-
+from srgssr_publication_data_api import PublicationDataApi
 
 @click.command()
-@click.option('--urn',
-              help='Retrieve asset information by id or play URN',
-              multiple=True,
-              default=[
-                  "30115005-A6C3-4708-98F8-10FB082E381E",
-                  "7296F1FD-5767-4BB9-9C3C-546959723141",
-                  "urn:srf:video:271310e9-f391-4d28-8495-be660fce42f1"
-              ],
-              )
-def main(urn):
+@click.option('--size', help='number of items', default=10, type=int)
+@click.option('--after', help='id of cursor to continue from')
+@click.option('--url', help='url of the API', required=True)
+@click.option('--username', help='username for basic auth')
+@click.option('--password', help='password for basic auth')
+def main(size, after, url, username, password):
     """Console script for srgssr_publication_data_api."""
-    variables = {'urn_list': urn}
-    result = run_query(URN_QUERY, variables)
-    if result['data']:
-        print(json.dumps(result, indent=1))
+    variables = {'first': size}
+    if after:
+        variables['after'] = after
+    client = PublicationDataApi(url, username, password)
+    op = client.query_op(first=non_null(int), after=str)
+    op.faro_items(first=Variable('first'), after=Variable('after'))
+    print(f"Executing GraphQL Query: {op}")
+    result=client.run_query(op, variables)
+    if result:
+        print(result)
         return 0
     else:
         return 1
