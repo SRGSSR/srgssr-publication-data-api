@@ -40,7 +40,7 @@ USAGE
 
         from sgqlc.types import Variable, non_null
         from sgqlc.operation import Operation
-        from srgssr_publicdation_data_api import client, pdp_schema
+        from srgssr_publication_data_api import client, pdp_schema
 
         op = Operation(schema.Query, name='faroItems', variables={'first':non_null(int), 'after':str})
 

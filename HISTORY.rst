@@ -2,6 +2,12 @@
 History
 =======
 
+0.3.1 (2021-03-24)
+------------------
+* Fixed typo in README.rst
+* Added missing dependency to sgqlc
+
+
 0.3.0 (2021-03-23)
 ------------------
 
