@@ -2,6 +2,12 @@
 History
 =======
 
+0.3.3 (2021-03-24)
+------------------
+
+* Nothing changed, just testing the release pipeline.
+
+
 0.3.2 (2021-03-24)
 ------------------
 
