@@ -111,7 +111,7 @@ Tips
 
 To run a subset of tests::
 
-$ py.test tests.test_pdp_graphql_client_python
+$ py.test tests/test_srgssr_publication_data_api_client.py
 
 
 Deploying

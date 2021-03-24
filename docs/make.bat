@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=pdp_graphql_client_python
+set SPHINXPROJ=srgssr_publication_data_api
 
 if "%1" == "" goto help
 

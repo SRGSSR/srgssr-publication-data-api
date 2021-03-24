@@ -21,10 +21,10 @@ pandas = "*"
 tqdm = "*"
 matplotlib = "*"
 pytest-mock = "*"
+requests = "*"
+autopep8 = "*"
 
 [packages]
-pdp_graphql_client_python = {path = ".", editable = true}
-click = "*"
+srgssr-publication-data-api = {path = ".", editable = true}
 python-dotenv = "*"
-requests = "*"
 sgqlc = "*"

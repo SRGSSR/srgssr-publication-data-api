@@ -12,7 +12,7 @@ To install PDP GraphQL client Python, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install pdp_graphql_client_python
+    $ pip install srgssr_publication_data_api
 
 This is the preferred method to install PDP GraphQL client Python, as it will always install the most recent stable release.
 

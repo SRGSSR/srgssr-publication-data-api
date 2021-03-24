@@ -5,9 +5,10 @@ Credits
 Development Lead
 ----------------
 
-* Davide Heller <davide.heller@srf.ch>
+* SRGSSR PDP Team <pdp@srgssr.ch>
 
 Contributors
 ------------
 
-None yet. Why not be the first?
+* Davide Heller <davide.heller@srf.ch>
+* Rico Metzger <rico.metzger@srf.ch>
