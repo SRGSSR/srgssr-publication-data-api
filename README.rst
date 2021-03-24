@@ -3,20 +3,12 @@ PDP GraphQL client Python
 =========================
 
 
-.. image:: https://img.shields.io/pypi/v/pdp_graphql_client_python.svg
-        :target: https://pypi.org/project/pdp_graphql_client_python
-
-.. image:: https://img.shields.io/travis/SRGSSR/pdp_graphql_client_python.svg
-        :target: https://travis-ci.org/SRGSSR/pdp_graphql_client_python
-
-.. image:: https://readthedocs.org/projects/pdp-graphql-client-python/badge/?version=latest
-        :target: https://pdp-graphql-client-python.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
+.. image:: https://img.shields.io/pypi/v/srgssr-publication-data-api.svg
+        :target: https://pypi.org/project/srgssr-publication-data-api
 
 
 
-
-Example repository of how to access PDP's GraphQL API through python
+API Client to access PDP's GraphQL API through python
 
 
 * Free software: MIT license
