@@ -3,9 +3,11 @@
 
 """Tests for `srgssr_publication_data_api` package."""
 
+from sgqlc.operation import Operation
 import pytest
 
-from srgssr_publication_data_api import client
+from srgssr_publication_data_api import PublicationDataApi, PublicationDataApiException
+from unittest.mock import patch
 
 EXAMPLE_ENDPOINT = "https://graphql-api.example.com/graphql"
 EXAMPLE_RESPONSE_OK = {
@@ -34,62 +36,50 @@ EXAMPLE_RESPONSE_ERROR = {
  ]
 }
 
-@pytest.fixture
-def basic_credentials(monkeypatch):
-    """provide basic credentials through monkeypatching and fixture
-
-    See more at: https://docs.pytest.org/en/stable/monkeypatch.html
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    monkeypatch.setenv("USER_NAME", "dummy")
-    monkeypatch.setenv("USER_PASSWORD", "password")
-
-
-@pytest.fixture
-def basic_endpoint_url(monkeypatch):
-    """provide example endpoint URL"""
-    monkeypatch.setenv("PDP_API", EXAMPLE_ENDPOINT)
-
-
-@pytest.fixture
-def missing_credentials(monkeypatch):
-    """remove credential"""
-    monkeypatch.delenv("USER_NAME", raising=False)
-
-
-@pytest.fixture
-def missing_endpoint(monkeypatch):
-    """remove endpoint URL"""
-    monkeypatch.delenv("PDP_API", raising=False)
-
-def test_assemble_authorization_headers(basic_credentials):
+def test_assemble_authorization_headers():
     """Test assembly of basic HTTP authentication headers"""
-    headers = client.assemble_authorization_headers()
+    client = PublicationDataApi("no-url", "dummy", "password")
+    headers = client.endpoint.base_headers
     assert 'Authorization' in headers
     assert headers['Authorization'] == 'Basic ZHVtbXk6cGFzc3dvcmQ='
 
 
-def test_raise_missing_environment(missing_credentials):
-    """Remove env variable USER_NAME and assert OSError"""
-    with pytest.raises(OSError):
-        _ = client.assemble_authorization_headers()
+def test_no_header_without_setting():
+    """Make sure that the endpoint has no authorization header if either username or password is missing"""
+    client1 = PublicationDataApi("no-url", "dummy", None)
+    client2 = PublicationDataApi("no-url", None, "abc")
+    client3 = PublicationDataApi("no-url", None, None)
+    headers = [ client.endpoint.base_headers for client in [client1, client2, client3] ]
+    assert 'Authorization' not in headers[0]
+    assert 'Authorization' not in headers[1]
+    assert 'Authorization' not in headers[2]
 
 
-def test_raise_missing_endpoint(missing_endpoint):
+def test_raise_missing_endpoint():
     """Remove env variable PDP_API and assert OSError"""
-    with pytest.raises(OSError):
-        _ = client.get_endpoint_url()
+    with pytest.raises(ValueError):
+        _ = PublicationDataApi(None, None, None)
 
 
-def test_get_endpoint_from_env(basic_endpoint_url, basic_credentials):
+def test_get_endpoint_from_env():
     """Test endpoint object creation"""
-    endpoint = client.get_http_endpoint_from_env()
-    assert endpoint.url == EXAMPLE_ENDPOINT
+    client = PublicationDataApi("dummy", "dummy", "dummy")
+    assert client.endpoint is not None
 
+def test_operation_is_working():
+    """Test that the query operation can be retrieved easily"""
+    client = PublicationDataApi("dummy", "dummy", "dummy")
+    op = client.query_op()
+    assert op is not None
+    assert isinstance(op, Operation)
 
-def test_query_failure(basic_endpoint_url, basic_credentials, mocker):
+def test_query_failure():
     """Mock server failure response and assert SystemExit"""
-    mocker.patch('srgssr_publication_data_api.client.call_api',
-                 return_value=EXAMPLE_RESPONSE_ERROR)
-    with pytest.raises(SystemExit):
-        _ = client.run_query("{query{}}")
+    with patch.object(PublicationDataApi, 'call_api', new=dummy_call_api):
+        client = PublicationDataApi("dummy-url", "dummy-user", "dummy-password")
+        with pytest.raises(PublicationDataApiException):
+            _ = client.run_query("{query{}}")
+
+
+def dummy_call_api(self, query, variables):
+    return EXAMPLE_RESPONSE_ERROR
