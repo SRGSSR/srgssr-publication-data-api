@@ -2,13 +2,19 @@
 History
 =======
 
-0.4.3 (2021-03-24)
+0.4.4 (2021-04-14)
+------------------
+
+* Cleanup of Github Actions Round
+
+
+0.4.3 (2021-04-14)
 ------------------
 
 * Cleanup of Github Actions
 
 
-0.4.2 (2021-03-24)
+0.4.2 (2021-04-14)
 ------------------
 
 * added docker image for Jupyter Notebooks (not yet public)
