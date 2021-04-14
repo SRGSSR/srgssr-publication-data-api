@@ -37,10 +37,6 @@ jobs:
       uses: pypa/gh-action-pypi-publish@master
       with:
         password: ${{ secrets.PYPI_API_TOKEN }}
-  deploy-to-ecr:
-    name: Publish a new docker image
-    runs-on: ubuntu-18.04
-    steps:
     - name: Version Name
       id: version_name
       run: |
