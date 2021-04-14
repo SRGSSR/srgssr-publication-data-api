@@ -62,5 +62,5 @@ jobs:
         PYPI_VERSION: ${{ steps.version_name.outputs.VERSION_TAG }}
         IMAGE_TAG: ${{ steps.version_name.outputs.VERSION_TAG }}_0
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  --build-arg api_version=PYPI_VERSION docker/
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  --build-arg api_version=$PYPI_VERSION docker/
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
