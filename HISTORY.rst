@@ -2,11 +2,22 @@
 History
 =======
 
+0.4.3 (2021-03-24)
+------------------
+
+* Cleanup of Github Actions
+
+
+0.4.2 (2021-03-24)
+------------------
+
+* added docker image for Jupyter Notebooks (not yet public)
+
+
 0.4.1 (2021-03-24)
 ------------------
 
 * fixed the old links in the README.rst
-
 
 
 0.4.0 (2021-03-24)
