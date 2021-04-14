@@ -4,7 +4,7 @@
 
 __author__ = """PDP"""
 __email__ = 'pdp@srgssr.ch'
-__version__ = '0.4.3'
+__version__ = '0.4.4'
 
 from srgssr_publication_data_api import pdp_schema
 from sgqlc.endpoint.http import HTTPEndpoint
